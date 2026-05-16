@@ -3,7 +3,10 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="es">
-      <Head />
+      <Head>
+        <link rel="icon" href="/icon.svg?v=fitstats-1" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico?v=fitstats-2" sizes="any" />
+      </Head>
       <body className="antialiased">
         <Main />
         <NextScript />
