@@ -1,6 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const FORMSPREE_ENDPOINT = process.env.FORMSPREE_ENDPOINT;
+function getFormspreeEndpoint() {
+  return (
+    process.env.FORMSPREE_ENDPOINT ||
+    process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT
+  );
+}
 
 export default async function handler(
   req: NextApiRequest,
@@ -27,12 +32,14 @@ export default async function handler(
     return res.status(400).json({ error: "Invalid input" });
   }
 
-  if (!FORMSPREE_ENDPOINT) {
+  const formspreeEndpoint = getFormspreeEndpoint();
+
+  if (!formspreeEndpoint) {
     return res.status(500).json({ error: "Missing FORMSPREE_ENDPOINT" });
   }
 
   try {
-    const response = await fetch(FORMSPREE_ENDPOINT, {
+    const response = await fetch(formspreeEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
