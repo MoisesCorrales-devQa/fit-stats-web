@@ -113,14 +113,14 @@ export default function FitStatsLanding() {
         <meta property="og:title" content="FitStats" />
         <meta
           property="og:description"
-          content="Tu progreso fitness, claro y bajo control."
+          content="Controla tu progreso con peso, medidas, entreno y composición corporal."
         />
-        <meta property="og:image" content="/images/icon.png" />
+        <meta property="og:image" content="/images/banner.png" />
       </Head>
 
       <main className="min-h-screen bg-[#07110d] text-slate-100">
         <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 lg:px-12">
-          <nav className="mb-12 flex flex-col gap-4 border-b border-emerald-400/20 pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <nav className="mb-8 flex flex-col gap-4 border-b border-emerald-400/20 pb-6 sm:flex-row sm:items-center sm:justify-between">
             <a href="#top" className="flex items-center gap-3">
               <Image
                 src="/images/icon.png"
@@ -150,75 +150,45 @@ export default function FitStatsLanding() {
             </div>
           </nav>
 
-          <section
-            id="top"
-            className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]"
-          >
-            <div>
-              <p className="mb-5 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-200">
-                App móvil de seguimiento fitness
-              </p>
-              <h1 className="max-w-3xl text-5xl font-black leading-tight tracking-tight text-white sm:text-6xl">
-                Tu progreso fitness, claro y bajo control.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                FitStats reúne tus registros de peso, medidas, entrenamientos,
-                pasos y objetivos nutricionales en una experiencia visual,
-                sencilla y pensada para revisar tu evolución sin ruido.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#beta"
-                  className="rounded-lg bg-emerald-400 px-6 py-3 text-center font-bold text-[#07110d] transition hover:bg-emerald-300"
-                >
-                  Unirme a la prueba cerrada
-                </a>
-                <a
-                  href="#screens"
-                  className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10"
-                >
-                  Ver la app
-                </a>
-              </div>
-
-              <div className="mt-10 grid gap-3 text-sm text-slate-300 sm:grid-cols-2">
-                {highlights.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3"
-                  >
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
+          <section id="top" className="border-b border-emerald-400/20 pb-14">
+            <div className="relative -mx-5 overflow-hidden sm:-mx-8 lg:-mx-12">
+              <Image
+                src="/images/banner.png"
+                alt="FitStats: controla tu progreso con peso, medidas, entreno y composición corporal"
+                width={1792}
+                height={1024}
+                priority
+                sizes="100vw"
+                className="min-h-[440px] w-full object-cover object-left sm:min-h-[560px] lg:min-h-0"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07110d] to-transparent" />
             </div>
 
-            <div className="relative mx-auto grid w-full max-w-3xl grid-cols-[0.9fr_1fr] items-center gap-4 sm:gap-6">
-              <div className="translate-y-8">
-                <div className="rounded-[2rem] border border-white/10 bg-black p-2 shadow-2xl shadow-black/40">
-                  <Image
-                    src="/images/Peso.png"
-                    alt="Pantalla de control de peso en FitStats"
-                    width={1080}
-                    height={2400}
-                    priority
-                    className="aspect-[9/20] w-full rounded-[1.5rem] object-cover"
-                  />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#beta"
+                className="rounded-lg bg-emerald-400 px-6 py-3 text-center font-bold text-[#07110d] transition hover:bg-emerald-300"
+              >
+                Unirme a la prueba cerrada
+              </a>
+              <a
+                href="#screens"
+                className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10"
+              >
+                Ver la app
+              </a>
+            </div>
+
+            <div className="mt-8 grid gap-3 text-sm text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
+              {highlights.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3"
+                >
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+                  <span>{item}</span>
                 </div>
-              </div>
-              <div>
-                <div className="rounded-[2rem] border border-emerald-400/30 bg-black p-2 shadow-2xl shadow-emerald-950/40">
-                  <Image
-                    src="/images/Dashboard.png"
-                    alt="Dashboard principal de FitStats"
-                    width={1080}
-                    height={2400}
-                    priority
-                    className="aspect-[9/20] w-full rounded-[1.5rem] object-cover"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </section>
 
