@@ -151,7 +151,7 @@ export default function FitStatsLanding() {
           </nav>
 
           <section id="top" className="border-b border-emerald-400/20 pb-14">
-            <div className="relative -mx-5 overflow-hidden sm:-mx-8 lg:-mx-12">
+            <div className="relative -mx-5 overflow-hidden bg-black sm:-mx-8 lg:-mx-12">
               <Image
                 src="/images/banner.png"
                 alt="FitStats: controla tu progreso con peso, medidas, entreno y composición corporal"
@@ -159,7 +159,7 @@ export default function FitStatsLanding() {
                 height={1024}
                 priority
                 sizes="100vw"
-                className="min-h-[440px] w-full object-cover object-left sm:min-h-[560px] lg:min-h-0"
+                className="h-auto w-full object-contain"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07110d] to-transparent" />
             </div>
