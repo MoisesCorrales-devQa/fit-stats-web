@@ -179,6 +179,34 @@ export default function FitStatsLanding() {
               </a>
             </div>
 
+            <div className="mt-6 flex flex-col gap-4 rounded-lg border border-emerald-400/20 bg-[#0d1b16] p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-300">
+                  Prueba cerrada disponible
+                </p>
+                <p className="mt-2 text-base leading-7 text-slate-300">
+                  De momento FitStats se puede probar solo en Android, mediante
+                  una invitación de prueba cerrada en Google Play Store.
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/images/Android_logo_2019.png"
+                  alt="Android"
+                  width={96}
+                  height={56}
+                  className="h-10 w-auto object-contain"
+                />
+                <Image
+                  src="/images/playstore.png"
+                  alt="Google Play Store"
+                  width={96}
+                  height={56}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            </div>
+
             <div className="mt-8 grid gap-3 text-sm text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
               {highlights.map((item) => (
                 <div
@@ -263,6 +291,28 @@ export default function FitStatsLanding() {
                 Déjame tu email y te escribiré cuando pueda añadir nuevos
                 testers a la prueba cerrada de la app móvil.
               </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-200">
+                <span className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
+                  <Image
+                    src="/images/Android_logo_2019.png"
+                    alt=""
+                    width={48}
+                    height={28}
+                    className="h-5 w-auto object-contain"
+                  />
+                  Solo Android
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
+                  <Image
+                    src="/images/playstore.png"
+                    alt=""
+                    width={48}
+                    height={28}
+                    className="h-5 w-auto object-contain"
+                  />
+                  Alta por Google Play Store
+                </span>
+              </div>
             </div>
 
             <form
@@ -330,7 +380,7 @@ export default function FitStatsLanding() {
 
               <p className="mt-3 text-sm leading-6 text-slate-400">
                 Usaré tu email únicamente para contactar contigo sobre la prueba
-                cerrada de FitStats.
+                cerrada de FitStats en Android a través de Google Play Store.
               </p>
 
               {error && <p className="mt-4 text-sm text-red-300">{error}</p>}
