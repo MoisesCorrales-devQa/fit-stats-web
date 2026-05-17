@@ -1,4 +1,3 @@
-import { FormEvent, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,60 +47,14 @@ const featureCards = [
   },
 ];
 
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+const googleGroupUrl = "https://groups.google.com/g/fitstats-testing";
+const googleGroupEmail = "fitstats-testing@googlegroups.com";
+const testingUrl =
+  "https://play.google.com/apps/testing/com.MCBsoftware.fitStats";
+const playStoreUrl =
+  "https://play.google.com/store/apps/details?id=com.MCBsoftware.fitStats";
 
 export default function FitStatsLanding() {
-  const [form, setForm] = useState({
-    email: "",
-    note: "",
-    website: "",
-  });
-  const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [result, setResult] = useState<null | "success" | "error">(null);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setResult(null);
-    setError("");
-
-    if (!isValidEmail(form.email)) {
-      setError("Introduce un email válido para unirte a la prueba cerrada.");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("/api/contact/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          source: "closed-beta",
-          name: "FitStats beta tester",
-          email: form.email,
-          message:
-            form.note.trim() ||
-            "Quiero unirme a la prueba cerrada de FitStats.",
-          website: form.website,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
-
-      setResult("success");
-      setForm({ email: "", note: "", website: "" });
-    } catch {
-      setResult("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
-
   return (
     <>
       <Head>
@@ -166,16 +119,20 @@ export default function FitStatsLanding() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#beta"
+                href={googleGroupUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg bg-emerald-400 px-6 py-3 text-center font-bold text-[#07110d] transition hover:bg-emerald-300"
               >
-                Unirme a la prueba cerrada
+                Solicitar acceso
               </a>
               <a
-                href="#screens"
+                href={testingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10"
               >
-                Ver la app
+                Abrir prueba en Play Store
               </a>
             </div>
 
@@ -185,8 +142,9 @@ export default function FitStatsLanding() {
                   Prueba cerrada disponible
                 </p>
                 <p className="mt-2 text-base leading-7 text-slate-300">
-                  De momento FitStats se puede probar solo en Android, mediante
-                  una invitación de prueba cerrada en Google Play Store.
+                  De momento FitStats se puede probar solo en Android. Para
+                  acceder, únete al grupo de Google y después abre el enlace de
+                  prueba en Google Play.
                 </p>
               </div>
               <div className="flex items-center gap-4">
@@ -288,8 +246,9 @@ export default function FitStatsLanding() {
                 Únete a la beta de FitStats
               </h2>
               <p className="mt-4 max-w-xl leading-8 text-slate-300">
-                Déjame tu email y te escribiré cuando pueda añadir nuevos
-                testers a la prueba cerrada de la app móvil.
+                Para solicitar acceso, únete al grupo de Google de testers.
+                Cuando estés dentro, podrás abrir el enlace de prueba de Google
+                Play y acceder a la app en Android.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-200">
                 <span className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
@@ -315,95 +274,83 @@ export default function FitStatsLanding() {
               </div>
             </div>
 
-            <form
-              className="rounded-lg border border-emerald-400/20 bg-[#0d1b16] p-6 shadow-2xl shadow-black/20"
-              onSubmit={handleSubmit}
-              autoComplete="off"
-            >
-              <div className="hidden">
-                <label>
-                  Website
-                  <input
-                    name="website"
-                    value={form.website}
-                    onChange={(event) =>
-                      setForm((current) => ({
-                        ...current,
-                        website: event.target.value,
-                      }))
-                    }
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
-                </label>
+            <div className="rounded-lg border border-emerald-400/20 bg-[#0d1b16] p-6 shadow-2xl shadow-black/20">
+              <ol className="space-y-4 text-base leading-7 text-slate-300">
+                <li className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-sm font-bold text-[#07110d]">
+                    1
+                  </span>
+                  <div>
+                    <p className="font-semibold text-white">
+                      Únete al grupo de Google
+                    </p>
+                    <a
+                      href={googleGroupUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="break-all font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-4 hover:text-emerald-200"
+                    >
+                      {googleGroupEmail}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-sm font-bold text-[#07110d]">
+                    2
+                  </span>
+                  <div>
+                    <p className="font-semibold text-white">
+                      Abre el enlace de prueba
+                    </p>
+                    <a
+                      href={testingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="break-all font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-4 hover:text-emerald-200"
+                    >
+                      {testingUrl}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-sm font-bold text-[#07110d]">
+                    3
+                  </span>
+                  <div>
+                    <p className="font-semibold text-white">
+                      Instala FitStats desde Play Store
+                    </p>
+                    <a
+                      href={playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="break-all font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-4 hover:text-emerald-200"
+                    >
+                      {playStoreUrl}
+                    </a>
+                  </div>
+                </li>
+              </ol>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={googleGroupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg bg-emerald-400 px-5 py-3 text-center font-bold text-[#07110d] transition hover:bg-emerald-300"
+                >
+                  Solicitar acceso
+                </a>
+                <a
+                  href={testingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-emerald-400/40 px-5 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10"
+                >
+                  Enlace de prueba
+                </a>
               </div>
-
-              <label className="block">
-                <span className="mb-2 block font-semibold text-emerald-100">
-                  Email
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  className="w-full rounded-lg border border-emerald-400/30 bg-[#07110d] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-emerald-300 focus:ring-2 focus:ring-emerald-300/20"
-                  placeholder="tu@email.com"
-                  value={form.email}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      email: event.target.value,
-                    }))
-                  }
-                  disabled={isSubmitting}
-                  required
-                />
-              </label>
-
-              <label className="mt-5 block">
-                <span className="mb-2 block font-semibold text-emerald-100">
-                  Mensaje opcional
-                </span>
-                <textarea
-                  name="note"
-                  className="min-h-28 w-full resize-y rounded-lg border border-emerald-400/30 bg-[#07110d] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-emerald-300 focus:ring-2 focus:ring-emerald-300/20"
-                  placeholder="Cuéntame si quieres probar algo concreto de la app."
-                  value={form.note}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      note: event.target.value,
-                    }))
-                  }
-                  disabled={isSubmitting}
-                />
-              </label>
-
-              <p className="mt-3 text-sm leading-6 text-slate-400">
-                Usaré tu email únicamente para contactar contigo sobre la prueba
-                cerrada de FitStats en Android a través de Google Play Store.
-              </p>
-
-              {error && <p className="mt-4 text-sm text-red-300">{error}</p>}
-
-              <button
-                type="submit"
-                className="mt-6 w-full rounded-lg bg-emerald-400 px-6 py-3 font-bold text-[#07110d] transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Enviando..." : "Enviar mi email"}
-              </button>
-
-              {result === "success" && (
-                <p className="mt-4 font-semibold text-emerald-300">
-                  Gracias. Te contactaré para la prueba cerrada.
-                </p>
-              )}
-              {result === "error" && (
-                <p className="mt-4 font-semibold text-red-300">
-                  No se ha podido enviar. Inténtalo de nuevo en unos minutos.
-                </p>
-              )}
-            </form>
+            </div>
           </section>
 
           <section className="flex flex-col gap-5 border-t border-emerald-400/20 py-10 sm:flex-row sm:items-center sm:justify-between">
