@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-const contactEmail = "moisescorrales.testing@gmail.com";
+const contactEmail = "fitstats.support@gmail.com";
 
 const collectedData = [
   "Datos de perfil físico, como edad, altura, sexo, peso objetivo y objetivos calóricos o de macronutrientes.",

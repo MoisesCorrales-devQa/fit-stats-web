@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-const contactEmail = "moisescorrales.testing@gmail.com";
+const contactEmail = "fitstats.support@gmail.com";
 
 const deletionSteps = [
   "Abre la app FitStats en tu dispositivo.",
