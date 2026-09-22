@@ -7,26 +7,27 @@ const playStoreUrl =
 const playStoreMarketingUrl =
   "https://play.google.com/store/apps/details?id=com.MCBsoftware.fitStats&utm_source=fitstats_es&utm_medium=landing&utm_campaign=public_launch";
 const googleGroupUrl = "https://groups.google.com/g/fitstats-testing";
+const siteUrl = "https://www.fitstats.es";
 
 const screenshots = [
   {
     title: "Dashboard",
-    text: "Ten una visión global de cómo está evolucionando tu cuerpo, tu actividad y tu entrenamiento.",
+    text: "Comprueba en segundos cómo evolucionan tu cuerpo, tu actividad y tu rendimiento.",
     image: "/images/Dashboard.png",
   },
   {
     title: "Entrenos y rendimiento",
-    text: "Registra sesiones, series, repeticiones y cargas, y sigue métricas como el e1RM para comprobar cómo evoluciona tu rendimiento.",
+    text: "Registra sesiones, series, repeticiones y cargas, y consulta métricas como el e1RM para seguir tu progreso.",
     image: "/images/Entrenos.png",
   },
   {
     title: "Peso",
-    text: "Sigue la evolución de tu peso y compárala con el objetivo que estás persiguiendo.",
+    text: "Observa la tendencia de tu peso y compárala con el objetivo que estás persiguiendo.",
     image: "/images/Peso.png",
   },
   {
     title: "Composición corporal",
-    text: "Ve cómo están cambiando tu peso, tus medidas y los datos de composición corporal en un mismo lugar.",
+    text: "Consulta cómo cambian tus medidas y estimaciones corporales a lo largo del tiempo.",
     image: "/images/Composición corporal.png",
   },
 ];
@@ -66,18 +67,36 @@ export default function FitStatsLanding() {
           property="og:description"
           content="Observa cómo cambia tu cuerpo y cómo evoluciona tu rendimiento con FitStats."
         />
-        <meta property="og:image" content="/images/banner.png" />
+        <link rel="canonical" href={siteUrl} />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${siteUrl}/images/banner_mejorado.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FitStats | Todo tu progreso, no solo tus entrenamientos" />
         <meta
           name="twitter:description"
           content="Observa cómo cambia tu cuerpo y cómo evoluciona tu rendimiento con FitStats."
         />
-        <meta name="twitter:image" content="/images/banner.png" />
+        <meta name="twitter:image" content={`${siteUrl}/images/banner_mejorado.png`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MobileApplication",
+              name: "FitStats",
+              operatingSystem: "Android",
+              applicationCategory: "HealthApplication",
+              description: "App Android para seguir peso, medidas, composición corporal, actividad y rendimiento en el gimnasio.",
+              installUrl: playStoreUrl,
+              url: siteUrl,
+            }),
+          }}
+        />
       </Head>
 
       <main className="min-h-screen bg-[#07110d] text-slate-100">
-        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-6xl px-5 py-5 sm:px-8 lg:px-12">
           <nav className="mb-8 flex flex-col gap-4 border-b border-emerald-400/20 pb-6 lg:flex-row lg:items-center lg:justify-between">
             <a href="#top" className="flex items-center gap-3">
               <Image
@@ -114,35 +133,34 @@ export default function FitStatsLanding() {
             </div>
           </nav>
 
-          <section id="top" className="border-b border-emerald-400/20 pb-14">
+          <section id="top" className="border-b border-emerald-400/20 pb-8">
             <div className="relative -mx-5 overflow-hidden bg-black sm:-mx-8 lg:-mx-12">
               <Image
-                src="/images/banner.png"
+                src="/images/banner_mejorado.png"
                 alt="FitStats: sigue tu cuerpo y tu rendimiento desde una sola app"
-                width={1792}
-                height={1024}
+                width={2172}
+                height={724}
                 priority
                 sizes="100vw"
                 className="h-auto w-full object-contain"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07110d] to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#07110d] to-transparent" />
             </div>
 
-            <div className="mt-10 max-w-4xl">
+            <div className="mt-5 max-w-4xl">
               <p className="mb-5 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-200">
                 Disponible para Android en Google Play
               </p>
               <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
                 Todo tu progreso. No solo tus entrenamientos.
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                Sigue tu peso, medidas, composición corporal, actividad y
-                rendimiento en el gimnasio desde una sola app. Comprueba si tu
-                volumen, definición o recomposición están funcionando de verdad.
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+                Registra tu cuerpo y tus entrenamientos en el mismo sitio para
+                entender si realmente estás progresando.
               </p>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <a
                 href={playStoreMarketingUrl}
                 target="_blank"
@@ -155,15 +173,11 @@ export default function FitStatsLanding() {
                 href="#features"
                 className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10"
               >
-                Ver cómo encaja todo
+                Ver funciones
               </a>
             </div>
 
-            <p className="mt-4 text-sm font-semibold text-slate-400">
-              Una app Android para observar cómo cambia tu cuerpo y cómo evoluciona tu rendimiento.
-            </p>
-
-            <div className="mt-8 grid gap-3 text-sm text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-5 grid gap-3 text-sm text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
               {highlights.map((item) => (
                 <div
                   key={item}
@@ -296,14 +310,6 @@ export default function FitStatsLanding() {
                 Instala la app pública para Android desde Google Play y empieza
                 a registrar tu progreso fitness con datos claros.
               </p>
-              <a
-                href={playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block break-all text-sm font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-4 hover:text-emerald-200"
-              >
-                {playStoreUrl}
-              </a>
             </div>
             <a
               href={playStoreMarketingUrl}
@@ -315,6 +321,19 @@ export default function FitStatsLanding() {
             </a>
           </section>
 
+          <section className="border-t border-emerald-400/20 py-10">
+            <div className="rounded-lg border border-white/10 bg-white/[0.03] p-6">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Confianza</p>
+              <div className="mt-5 grid gap-4 text-sm leading-7 text-slate-300 sm:grid-cols-2 lg:grid-cols-5">
+                <p><span className="font-bold text-white">Android:</span> disponible en Google Play.</p>
+                <p><span className="font-bold text-white">Datos:</span> almacenados principalmente en tu dispositivo.</p>
+                <p><span className="font-bold text-white">Privacidad:</span> no se utilizan para publicidad.</p>
+                <p><span className="font-bold text-white">Control:</span> exporta tus datos en CSV.</p>
+                <p><span className="font-bold text-white">Desarrollo:</span> independiente.</p>
+              </div>
+            </div>
+          </section>
+
           <section
             id="beta"
             className="flex flex-col gap-5 border-t border-emerald-400/20 py-10 sm:flex-row sm:items-center sm:justify-between"
@@ -322,9 +341,8 @@ export default function FitStatsLanding() {
             <div>
               <h2 className="text-2xl font-black text-white">Canal beta</h2>
               <p className="mt-2 max-w-2xl leading-7 text-slate-300">
-                FitStats ya está disponible en Google Play. El canal beta queda
-                reservado para probar futuras novedades antes de su lanzamiento
-                público.
+                ¿Quieres probar futuras novedades antes de su lanzamiento? Únete
+                al canal beta.
               </p>
             </div>
             <a
@@ -336,6 +354,19 @@ export default function FitStatsLanding() {
               Unirme a la beta
             </a>
           </section>
+
+          <footer className="border-t border-emerald-400/20 py-8 text-sm text-slate-400">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="font-bold text-white">Fit<span className="text-emerald-300">Stats</span></p>
+              <nav className="flex flex-wrap gap-x-5 gap-y-3">
+                <a href={playStoreMarketingUrl} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-200">Google Play</a>
+                <Link href="/privacy" className="hover:text-emerald-200">Privacidad</Link>
+                <Link href="/delete-data" className="hover:text-emerald-200">Eliminar datos</Link>
+                <a href="mailto:fitstats.support@gmail.com" className="hover:text-emerald-200">Soporte</a>
+                <a href={googleGroupUrl} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-200">Canal beta</a>
+              </nav>
+            </div>
+          </footer>
         </div>
       </main>
     </>

@@ -40,6 +40,13 @@ export default function PrivacyPolicy() {
           name="description"
           content="Política de privacidad de la aplicación FitStats."
         />
+        <link rel="canonical" href="https://www.fitstats.es/privacy/" />
+        <meta property="og:title" content="Política de Privacidad | FitStats" />
+        <meta property="og:description" content="Consulta cómo FitStats trata los datos relacionados con el seguimiento fitness." />
+        <meta property="og:url" content="https://www.fitstats.es/privacy/" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Política de Privacidad | FitStats" />
+        <meta name="twitter:description" content="Consulta cómo FitStats trata los datos relacionados con el seguimiento fitness." />
       </Head>
 
       <main className="min-h-screen bg-[#07110d] px-5 py-12 text-slate-100 sm:px-8 lg:px-12">
@@ -127,15 +134,15 @@ export default function PrivacyPolicy() {
                 </p>
                 <p>
                   FitStats puede acceder a datos de pasos o actividad física
-                  mediante Health Connect, Google Fit u otros servicios
-                  equivalentes, siempre que el usuario conceda los permisos
+                  mediante Health Connect, siempre que el usuario conceda los permisos
                   correspondientes. Estos permisos son opcionales y pueden
                   revocarse desde los ajustes del sistema.
                 </p>
                 <p>
-                  FitStats utiliza Google Play Billing, Google Play Services y
-                  RevenueCat para procesar, validar o gestionar compras premium,
-                  suscripciones o licencias.
+                  Algunos servicios externos, como Google Play, pueden tratar
+                  los datos técnicos necesarios para distribuir la aplicación o
+                  gestionar servicios asociados. Consulta sus propias políticas
+                  para conocer ese tratamiento.
                 </p>
               </div>
             </article>
@@ -146,10 +153,9 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="space-y-4 text-base leading-8 text-slate-300">
                 <p>
-                  FitStats puede permitir al usuario generar archivos exportados,
-                  como JSON o Excel, bajo una acción explícita dentro de la app.
-                  El usuario decide dónde guarda esos archivos y con quién los
-                  comparte.
+                  FitStats permite importar y exportar datos en formato CSV bajo
+                  una acción explícita dentro de la app. El usuario decide dónde
+                  guarda esos archivos y con quién los comparte.
                 </p>
                 <p>
                   Aplicamos medidas razonables de seguridad para proteger la

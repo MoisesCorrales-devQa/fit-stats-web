@@ -5,10 +5,10 @@ const contactEmail = "fitstats.support@gmail.com";
 
 const deletionSteps = [
   "Abre la app FitStats en tu dispositivo.",
-  "Entra en la sección Ajustes.",
-  "Busca la opción relacionada con datos, privacidad o gestión de datos.",
-  "Selecciona la opción para borrar tus datos o restablecer los registros de la app.",
-  "Confirma la acción cuando la app lo solicite.",
+  "Si la app ofrece una opción de borrado de registros, úsala y confirma la acción.",
+  "Para eliminar los datos locales, desinstala FitStats desde Android.",
+  "Desde los ajustes del sistema, revisa y revoca los permisos de actividad física o Health Connect si los concediste.",
+  "Si exportaste un archivo CSV, elimínalo manualmente de la ubicación donde lo guardaste o compartiste.",
 ];
 
 const deletedData = [
@@ -27,8 +27,15 @@ export default function DeleteData() {
         <title>Eliminación de Datos | FitStats</title>
         <meta
           name="description"
-          content="Instrucciones para borrar los datos de usuario de la aplicación FitStats."
+          content="Información para eliminar los datos locales de FitStats y gestionar permisos en Android."
         />
+        <link rel="canonical" href="https://www.fitstats.es/delete-data/" />
+        <meta property="og:title" content="Eliminación de Datos | FitStats" />
+        <meta property="og:description" content="Información para eliminar los datos locales de FitStats y gestionar permisos en Android." />
+        <meta property="og:url" content="https://www.fitstats.es/delete-data/" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Eliminación de Datos | FitStats" />
+        <meta name="twitter:description" content="Información para eliminar los datos locales de FitStats y gestionar permisos en Android." />
       </Head>
 
       <main className="min-h-screen bg-[#07110d] px-5 py-12 text-slate-100 sm:px-8 lg:px-12">
@@ -75,8 +82,8 @@ export default function DeleteData() {
           <div className="mb-8 rounded-lg border border-emerald-400/20 bg-[#0d1b16] p-6 text-base leading-8 text-slate-200 shadow-2xl shadow-black/20">
             <p>
               Esta página explica cómo borrar los datos guardados por FitStats
-              desde la sección de ajustes de la app. FitStats almacena los datos
-              principalmente de forma local en el dispositivo, por lo que el
+              desde el dispositivo Android. FitStats almacena los datos
+              principalmente de forma local, por lo que el
               usuario mantiene el control directo sobre sus registros.
             </p>
           </div>
@@ -123,7 +130,7 @@ export default function DeleteData() {
                   borra los datos locales asociados a la app en ese dispositivo.
                 </p>
                 <p>
-                  Si has exportado archivos en JSON o Excel, esos archivos no se
+                  Si has exportado archivos CSV, esos archivos no se
                   eliminan automáticamente desde FitStats. Puedes borrarlos
                   manualmente desde la ubicación donde los hayas guardado o
                   compartido.
