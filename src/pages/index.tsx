@@ -11,61 +11,67 @@ const googleGroupUrl = "https://groups.google.com/g/fitstats-testing";
 const screenshots = [
   {
     title: "Dashboard",
-    text: "Consulta tu estado actual, tus registros recientes y tus métricas principales sin perderte entre menús.",
+    text: "Ten una visión global de cómo está evolucionando tu cuerpo, tu actividad y tu entrenamiento.",
     image: "/images/Dashboard.png",
   },
   {
-    title: "Peso",
-    text: "Registra tu peso corporal y revisa la evolución con gráficas claras.",
-    image: "/images/Peso.png",
-  },
-  {
-    title: "Entrenos",
-    text: "Lleva el control de sesiones, ejercicios y rendimiento semanal.",
+    title: "Entrenos y rendimiento",
+    text: "Registra sesiones, series, repeticiones y cargas, y sigue métricas como el e1RM para comprobar cómo evoluciona tu rendimiento.",
     image: "/images/Entrenos.png",
   },
   {
+    title: "Peso",
+    text: "Sigue la evolución de tu peso y compárala con el objetivo que estás persiguiendo.",
+    image: "/images/Peso.png",
+  },
+  {
     title: "Composición corporal",
-    text: "Guarda medidas y estimaciones para entender mejor cómo cambia tu cuerpo.",
+    text: "Ve cómo están cambiando tu peso, tus medidas y los datos de composición corporal en un mismo lugar.",
     image: "/images/Composición corporal.png",
   },
 ];
 
 const highlights = [
-  "Peso, medidas y evolución corporal",
-  "Entrenamientos y progreso",
-  "Pasos y actividad física con permisos opcionales",
-  "Objetivos calóricos y macros sin diario de comidas",
+  "Cuerpo: peso, medidas y composición corporal",
+  "Rendimiento: entrenamientos, cargas y evolución",
+  "Actividad: pasos e integración con Health Connect",
+  "Objetivo: definición, mantenimiento, volumen o recomposición",
 ];
 
 const valuePoints = [
-  "Registra datos clave de tu evolución física.",
-  "Consulta gráficas y métricas de progreso.",
-  "Exporta tus datos para revisarlos o compartirlos con tu entrenador.",
-  "Sin diario diario de comidas.",
-  "Con permisos opcionales para actividad física y pasos.",
+  "Todo lo que necesitas para observar cuerpo y rendimiento desde un mismo sitio.",
+  "Los datos te ayudan a comprobar cómo avanza tu objetivo; FitStats no decide por ti si una fase está funcionando.",
+  "Importa y exporta tus datos en CSV para conservarlos, revisarlos o compartirlos con tu entrenador.",
+  "Consulta tu evolución con registros, gráficas y métricas claras.",
+];
+
+const valueGroups = [
+  ["CUERPO", "Ve cómo está cambiando tu peso, tus medidas y tu composición corporal."],
+  ["RENDIMIENTO", "Comprueba cómo evoluciona tu entrenamiento con series, repeticiones, cargas, métricas de rendimiento y e1RM."],
+  ["ACTIVIDAD", "Ten en cuenta tus pasos y actividad física con permisos opcionales e integración existente con Health Connect."],
+  ["OBJETIVO", "Controla tu progreso mientras persigues una definición, mantenimiento, volumen o recomposición."],
 ];
 
 export default function FitStatsLanding() {
   return (
     <>
       <Head>
-        <title>FitStats | Seguimiento fitness claro y privado</title>
+        <title>FitStats | Todo tu progreso, no solo tus entrenamientos</title>
         <meta
           name="description"
-          content="Registra peso, medidas corporales, entrenamientos, pasos y evolución física con FitStats. Una app Android para entender tu progreso fitness con datos claros."
+          content="FitStats reúne peso, medidas, composición corporal, actividad y entrenamiento para seguir tu progreso físico desde una sola app Android."
         />
-        <meta property="og:title" content="FitStats" />
+        <meta property="og:title" content="FitStats | Todo tu progreso, no solo tus entrenamientos" />
         <meta
           property="og:description"
-          content="Controla tu progreso fitness con peso, medidas, entrenamientos, pasos, gráficas y exportación de datos."
+          content="Observa cómo cambia tu cuerpo y cómo evoluciona tu rendimiento con FitStats."
         />
         <meta property="og:image" content="/images/banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FitStats" />
+        <meta name="twitter:title" content="FitStats | Todo tu progreso, no solo tus entrenamientos" />
         <meta
           name="twitter:description"
-          content="Controla tu progreso fitness con peso, medidas, entrenamientos, pasos, gráficas y exportación de datos."
+          content="Observa cómo cambia tu cuerpo y cómo evoluciona tu rendimiento con FitStats."
         />
         <meta name="twitter:image" content="/images/banner.png" />
       </Head>
@@ -112,7 +118,7 @@ export default function FitStatsLanding() {
             <div className="relative -mx-5 overflow-hidden bg-black sm:-mx-8 lg:-mx-12">
               <Image
                 src="/images/banner.png"
-                alt="FitStats: controla tu progreso con peso, medidas, entreno y composición corporal"
+                alt="FitStats: sigue tu cuerpo y tu rendimiento desde una sola app"
                 width={1792}
                 height={1024}
                 priority
@@ -127,12 +133,12 @@ export default function FitStatsLanding() {
                 Disponible para Android en Google Play
               </p>
               <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">
-                Controla tu progreso fitness con datos claros
+                Todo tu progreso. No solo tus entrenamientos.
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                Registra peso, medidas corporales, entrenamientos, pasos y
-                evolución física en una sola app. FitStats te ayuda a entender
-                tu progreso con gráficas, métricas y exportación de datos.
+                Sigue tu peso, medidas, composición corporal, actividad y
+                rendimiento en el gimnasio desde una sola app. Comprueba si tu
+                volumen, definición o recomposición están funcionando de verdad.
               </p>
             </div>
 
@@ -149,12 +155,12 @@ export default function FitStatsLanding() {
                 href="#features"
                 className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10"
               >
-                Ver funciones
+                Ver cómo encaja todo
               </a>
             </div>
 
             <p className="mt-4 text-sm font-semibold text-slate-400">
-              Disponible para Android en Google Play.
+              Una app Android para observar cómo cambia tu cuerpo y cómo evoluciona tu rendimiento.
             </p>
 
             <div className="mt-8 grid gap-3 text-sm text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
@@ -173,11 +179,11 @@ export default function FitStatsLanding() {
           <section id="screens" className="py-20">
             <div className="mb-10 max-w-2xl">
               <h2 className="text-3xl font-black text-white sm:text-4xl">
-                Una app pensada para mirar datos de un vistazo
+                Una visión conjunta de tu progreso
               </h2>
               <p className="mt-4 text-base leading-8 text-slate-300">
-                Cada pantalla está enfocada en una tarea concreta: consultar,
-                registrar y entender tu progreso sin saturarte.
+                FitStats reúne las piezas que necesitas para observar tu
+                evolución: cuerpo, rendimiento, actividad y objetivo actual.
               </p>
             </div>
 
@@ -218,20 +224,26 @@ export default function FitStatsLanding() {
                 Funciones
               </p>
               <h2 className="text-3xl font-black text-white sm:text-4xl">
-                Todo tu progreso fitness, reunido
+                Cuerpo y rendimiento, en el mismo sitio
               </h2>
               <p className="mt-4 max-w-xl leading-8 text-slate-300">
-                FitStats centraliza tus datos de progreso físico para que puedas
-                consultarlos de forma clara: peso, medidas corporales,
-                entrenamientos, pasos, objetivos nutricionales y estimaciones de
-                composición corporal. Está pensada para personas que entrenan y
-                quieren revisar su evolución sin depender de hojas sueltas ni
-                apps centradas únicamente en contar calorías.
+                Registrar entrenamientos te dice qué haces en el gimnasio, pero
+                no explica por sí solo cómo está evolucionando tu físico.
+                FitStats reúne los datos que necesitas para observar ambas
+                partes sin convertirlas en conclusiones automáticas.
               </p>
             </div>
 
             <div className="rounded-lg border border-emerald-400/20 bg-[#0d1b16] p-6 shadow-2xl shadow-black/20">
-              <ul className="space-y-4 text-base leading-7 text-slate-300">
+              <div className="grid gap-5 sm:grid-cols-2">
+                {valueGroups.map(([title, text]) => (
+                  <div key={title}>
+                    <p className="text-sm font-black tracking-[0.18em] text-emerald-300">{title}</p>
+                    <p className="mt-2 leading-7 text-slate-300">{text}</p>
+                  </div>
+                ))}
+              </div>
+              <ul className="mt-7 space-y-4 border-t border-white/10 pt-6 text-base leading-7 text-slate-300">
                 {valuePoints.map((point) => (
                   <li key={point} className="flex gap-3">
                     <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
