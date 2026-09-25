@@ -30,6 +30,9 @@ export default function DeleteData() {
           content="Información para eliminar los datos locales de FitStats y gestionar permisos en Android."
         />
         <link rel="canonical" href="https://www.fitstats.es/delete-data/" />
+        <link rel="alternate" hrefLang="es" href="https://www.fitstats.es/delete-data/" />
+        <link rel="alternate" hrefLang="en" href="https://www.fitstats.es/en/delete-data/" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.fitstats.es/delete-data/" />
         <meta property="og:title" content="Eliminación de Datos | FitStats" />
         <meta property="og:description" content="Información para eliminar los datos locales de FitStats y gestionar permisos en Android." />
         <meta property="og:url" content="https://www.fitstats.es/delete-data/" />
@@ -45,6 +48,9 @@ export default function DeleteData() {
             className="mb-8 inline-flex font-semibold text-emerald-300 hover:text-emerald-200"
           >
             Volver a FitStats
+          </Link>
+          <Link href="/en/delete-data/" hrefLang="en" className="mb-8 ml-5 inline-flex font-semibold text-slate-300 hover:text-emerald-200">
+            English
           </Link>
 
           <header className="mb-10 border-b border-emerald-400/20 pb-8">

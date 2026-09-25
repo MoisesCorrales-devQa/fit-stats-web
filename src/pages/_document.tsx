@@ -1,8 +1,17 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from "next/document";
 
-export default function Document() {
+type FitStatsDocumentProps = DocumentInitialProps & { lang: "es" | "en" };
+
+export default function FitStatsDocument({ lang }: FitStatsDocumentProps) {
   return (
-    <Html lang="es">
+    <Html lang={lang}>
       <Head>
         <link rel="icon" href="/icon.svg?v=fitstats-1" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.ico?v=fitstats-2" sizes="any" />
@@ -14,3 +23,12 @@ export default function Document() {
     </Html>
   );
 }
+
+FitStatsDocument.getInitialProps = async (
+  ctx: DocumentContext,
+): Promise<FitStatsDocumentProps> => {
+  const initialProps = await Document.getInitialProps(ctx);
+  const lang = ctx.pathname === "/en" || ctx.pathname.startsWith("/en/") ? "en" : "es";
+
+  return { ...initialProps, lang };
+};

@@ -68,6 +68,9 @@ export default function FitStatsLanding() {
           content="Observa cómo cambia tu cuerpo y cómo evoluciona tu rendimiento con FitStats."
         />
         <link rel="canonical" href={siteUrl} />
+        <link rel="alternate" hrefLang="es" href={`${siteUrl}/`} />
+        <link rel="alternate" hrefLang="en" href={`${siteUrl}/en/`} />
+        <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/`} />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${siteUrl}/images/banner_mejorado.png`} />
@@ -121,6 +124,14 @@ export default function FitStatsLanding() {
               </a>
               <Link href="/privacy" className="hover:text-emerald-200">
                 Privacidad
+              </Link>
+              <Link
+                href="/en/"
+                hrefLang="en"
+                className="rounded-lg border border-white/15 px-3 py-2 hover:border-emerald-400/50 hover:text-emerald-200"
+                aria-label="View FitStats in English"
+              >
+                EN
               </Link>
               <a
                 href={playStoreMarketingUrl}

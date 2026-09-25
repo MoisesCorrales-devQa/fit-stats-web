@@ -41,6 +41,9 @@ export default function PrivacyPolicy() {
           content="Política de privacidad de la aplicación FitStats."
         />
         <link rel="canonical" href="https://www.fitstats.es/privacy/" />
+        <link rel="alternate" hrefLang="es" href="https://www.fitstats.es/privacy/" />
+        <link rel="alternate" hrefLang="en" href="https://www.fitstats.es/en/privacy/" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.fitstats.es/privacy/" />
         <meta property="og:title" content="Política de Privacidad | FitStats" />
         <meta property="og:description" content="Consulta cómo FitStats trata los datos relacionados con el seguimiento fitness." />
         <meta property="og:url" content="https://www.fitstats.es/privacy/" />
@@ -56,6 +59,9 @@ export default function PrivacyPolicy() {
             className="mb-8 inline-flex font-semibold text-emerald-300 hover:text-emerald-200"
           >
             Volver a FitStats
+          </Link>
+          <Link href="/en/privacy/" hrefLang="en" className="mb-8 ml-5 inline-flex font-semibold text-slate-300 hover:text-emerald-200">
+            English
           </Link>
 
           <header className="mb-10 border-b border-emerald-400/20 pb-8">
