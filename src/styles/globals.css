@@ -23,3 +23,42 @@ body {
   background: #07110d;
   min-height: 100vh;
 }
+
+.reveal-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-enabled [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-group] > [data-reveal]:nth-child(2) {
+  --reveal-delay: 70ms;
+}
+
+[data-reveal-group] > [data-reveal]:nth-child(3) {
+  --reveal-delay: 140ms;
+}
+
+[data-reveal-group] > [data-reveal]:nth-child(4) {
+  --reveal-delay: 210ms;
+}
+
+[data-reveal-group] > [data-reveal]:nth-child(5) {
+  --reveal-delay: 280ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enabled [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

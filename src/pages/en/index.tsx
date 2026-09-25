@@ -20,6 +20,13 @@ const benefits = [
   ["Your data stays useful", "Core records are stored primarily on your device and can be exported for your own review, your coach or other tools."],
 ];
 
+const screenshots = [
+  ["Your weekly progress", "See how your body, activity and current goal are developing at a glance.", "/images/screen-dashboard-en.png"],
+  ["Workouts and performance", "Log sessions and review sets, loads and estimated 1RM performance.", "/images/screen-workouts-en.png"],
+  ["Weight trend", "Follow your weight with clear charts, averages and a complete record history.", "/images/screen-weight-en.png"],
+  ["Body composition", "Review body-composition estimates and measurements with careful context around changes.", "/images/screen-composition-en.png"],
+];
+
 export default function EnglishLanding() {
   return (
     <>
@@ -74,7 +81,7 @@ export default function EnglishLanding() {
 
           <section id="top" className="relative overflow-hidden border-b border-emerald-400/20 pb-14 pt-8 sm:pt-14">
             <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-emerald-400/10 blur-3xl" />
-            <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="relative grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
               <div>
                 <p className="mb-5 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-200">Available for Android on Google Play</p>
                 <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">All your progress. Not just your workouts.</h1>
@@ -84,24 +91,32 @@ export default function EnglishLanding() {
                   <a href="#features" className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10">Explore features</a>
                 </div>
               </div>
-              <div className="rounded-2xl border border-emerald-400/20 bg-[#0d1b16] p-6 shadow-2xl shadow-black/30">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Your current goal</p>
-                <p className="mt-3 text-3xl font-black text-white">Cut · Maintain · Bulk · Recomp</p>
-                <p className="mt-4 leading-7 text-slate-300">Keep the goal you are working towards beside the body and performance data you use to judge progress.</p>
-                <div className="mt-6 h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full w-3/5 rounded-full bg-emerald-400" /></div>
-              </div>
+              <figure className="flex flex-col items-center justify-end">
+                <Image
+                  src="/images/dashboard-header-en.png"
+                  alt="FitStats dashboard in English showing weight, measurements, workouts, steps and the current goal"
+                  width={850}
+                  height={1600}
+                  priority
+                  sizes="(max-width: 767px) 80vw, 40vw"
+                  className="max-h-[500px] w-auto max-w-full object-contain drop-shadow-2xl md:max-h-[540px] lg:max-h-[590px]"
+                />
+                <figcaption className="mt-2 text-center text-sm font-semibold text-slate-400">
+                  Your body, activity and performance at a glance.
+                </figcaption>
+              </figure>
             </div>
           </section>
 
           <section id="features" className="py-16">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-reveal>
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">One fitness record</p>
               <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">Connect body changes with gym performance</h2>
               <p className="mt-4 leading-8 text-slate-300">A workout log tells you what happened in the gym. It does not show the full picture of how your body is changing. FitStats keeps both sides together without claiming to make the decision for you.</p>
             </div>
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2" data-reveal-group>
               {pillars.map(([title, text]) => (
-                <article key={title} className="rounded-lg border border-white/10 bg-[#101513] p-6">
+                <article key={title} className="rounded-lg border border-white/10 bg-[#101513] p-6" data-reveal>
                   <h3 className="text-sm font-black tracking-[0.18em] text-emerald-300">{title}</h3>
                   <p className="mt-3 leading-7 text-slate-300">{text}</p>
                 </article>
@@ -109,11 +124,32 @@ export default function EnglishLanding() {
             </div>
           </section>
 
+          <section id="screens" className="border-t border-emerald-400/20 py-16">
+            <div className="max-w-3xl" data-reveal>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Inside FitStats</p>
+              <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">Clear data, kept in context</h2>
+              <p className="mt-4 leading-8 text-slate-300">Each screen helps you review one part of your progress without losing the bigger picture.</p>
+            </div>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+              {screenshots.map(([title, text, image]) => (
+                <article key={title} className="overflow-hidden rounded-xl border border-white/10 bg-[#101513] shadow-xl shadow-black/20" data-reveal>
+                  <div className="bg-black p-2">
+                    <Image src={image} alt={`FitStats ${title} screen`} width={1344} height={2843} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 23vw" className="aspect-[9/19] w-full rounded-lg object-cover object-top" />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-white">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="border-t border-emerald-400/20 py-14">
-            <h2 className="text-3xl font-black text-white sm:text-4xl">Made for checking real progress</h2>
-            <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            <h2 className="text-3xl font-black text-white sm:text-4xl" data-reveal>Made for checking real progress</h2>
+            <div className="mt-8 grid gap-5 lg:grid-cols-3" data-reveal-group>
               {benefits.map(([title, text]) => (
-                <article key={title} className="rounded-lg border border-emerald-400/15 bg-[#0d1b16] p-6">
+                <article key={title} className="rounded-lg border border-emerald-400/15 bg-[#0d1b16] p-6" data-reveal>
                   <h3 className="text-xl font-bold text-white">{title}</h3>
                   <p className="mt-3 leading-7 text-slate-300">{text}</p>
                 </article>
@@ -121,7 +157,7 @@ export default function EnglishLanding() {
             </div>
           </section>
 
-          <section className="grid gap-8 border-t border-emerald-400/20 py-14 lg:grid-cols-[1fr_auto] lg:items-center">
+          <section className="grid gap-8 border-t border-emerald-400/20 py-14 lg:grid-cols-[1fr_auto] lg:items-center" data-reveal>
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Privacy and control</p>
               <h2 className="mt-4 text-3xl font-black text-white">Your records remain yours</h2>
@@ -133,7 +169,7 @@ export default function EnglishLanding() {
             </div>
           </section>
 
-          <section className="grid gap-6 border-t border-emerald-400/20 py-12 lg:grid-cols-[1fr_auto] lg:items-center">
+          <section className="grid gap-6 border-t border-emerald-400/20 py-12 lg:grid-cols-[1fr_auto] lg:items-center" data-reveal>
             <div>
               <h2 className="text-3xl font-black text-white">Download FitStats on Google Play</h2>
               <p className="mt-3 max-w-2xl leading-8 text-slate-300">Start tracking your body, activity and strength-training progress in one Android app.</p>
@@ -141,7 +177,7 @@ export default function EnglishLanding() {
             <a href={playStoreUrl} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-emerald-400 px-6 py-3 text-center font-bold text-[#07110d] transition hover:bg-emerald-300">Get it on Google Play</a>
           </section>
 
-          <section className="border-t border-emerald-400/20 py-10 text-sm text-slate-300">
+          <section className="border-t border-emerald-400/20 py-10 text-sm text-slate-300" data-reveal>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               <p><strong className="text-white">Android:</strong> available on Google Play.</p>
               <p><strong className="text-white">Local-first:</strong> core records primarily stay on your device.</p>
@@ -151,7 +187,7 @@ export default function EnglishLanding() {
             </div>
           </section>
 
-          <section className="flex flex-col gap-4 border-t border-emerald-400/20 py-8 sm:flex-row sm:items-center sm:justify-between">
+          <section className="flex flex-col gap-4 border-t border-emerald-400/20 py-8 sm:flex-row sm:items-center sm:justify-between" data-reveal>
             <p className="text-slate-300">Want to try upcoming improvements before release? Join the beta channel.</p>
             <a href={googleGroupUrl} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-white/15 px-5 py-3 text-center text-sm font-bold text-slate-200 hover:border-emerald-400/40">Join the beta</a>
           </section>
