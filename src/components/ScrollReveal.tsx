@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function ScrollReveal() {
+  const { asPath } = useRouter();
+
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
 
@@ -26,7 +29,7 @@ export default function ScrollReveal() {
       observer.disconnect();
       document.documentElement.classList.remove("reveal-enabled");
     };
-  }, []);
+  }, [asPath]);
 
   return null;
 }
