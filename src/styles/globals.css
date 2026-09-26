@@ -22,6 +22,123 @@
 body {
   background: #07110d;
   min-height: 100vh;
+  overflow-x: clip;
+}
+
+.hero-mesh-glow {
+  display: none;
+}
+
+/* The landing page keeps its compact mobile layout. The wider composition and
+   ambient background begin only at the desktop breakpoint. */
+@media (min-width: 1024px) {
+  .landing-shell {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(
+      118deg,
+      #06100c 0%,
+      #07130e 22%,
+      #081912 46%,
+      #0a231a 68%,
+      #091d16 84%,
+      #07130f 100%
+    );
+  }
+
+  .landing-container {
+    width: min(100% - clamp(3rem, 7vw, 8.5rem), 1536px);
+    max-width: none;
+    padding: 1.5rem 0 2rem;
+  }
+
+  .site-nav {
+    margin-bottom: 0;
+    padding: 0.15rem 0 1.35rem;
+  }
+
+  .hero-section {
+    min-height: min(760px, calc(100vh - 96px));
+    display: flex;
+    align-items: center;
+    padding-block: clamp(4rem, 8vh, 6.75rem);
+    overflow: visible;
+  }
+
+  .hero-grid {
+    width: 100%;
+    grid-template-columns: minmax(28rem, 0.88fr) minmax(31rem, 1.12fr);
+    gap: clamp(3rem, 6vw, 7rem);
+  }
+
+  .hero-copy {
+    max-width: 42rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 11ch;
+    font-size: clamp(3.9rem, 5vw, 5.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  .hero-copy > p:not(:first-child) {
+    max-width: 38rem;
+    font-size: 1.15rem;
+  }
+
+  .hero-device {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hero-mesh-glow {
+    position: absolute;
+    z-index: -1;
+    inset: -35% -45% -25%;
+    display: block;
+    overflow: hidden;
+    background: #0d4938;
+    opacity: 0.85;
+    pointer-events: none;
+    /* Fade to zero BEFORE every edge; clipping an opaque mask made an oval. */
+    -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 0%, rgba(0, 0, 0, 0.92) 15%, rgba(0, 0, 0, 0.65) 35%, rgba(0, 0, 0, 0.32) 55%, rgba(0, 0, 0, 0.1) 75%, transparent 100%);
+    mask-image: radial-gradient(ellipse closest-side at center, #000 0%, rgba(0, 0, 0, 0.92) 15%, rgba(0, 0, 0, 0.65) 35%, rgba(0, 0, 0, 0.32) 55%, rgba(0, 0, 0, 0.1) 75%, transparent 100%);
+  }
+
+  .hero-mesh-glow > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-device::before {
+    content: none;
+  }
+
+  .hero-device img {
+    max-height: clamp(38rem, 66vh, 48rem);
+    filter: drop-shadow(0 2rem 3.5rem rgba(0, 0, 0, 0.48));
+  }
+
+  .hero-device figcaption {
+    margin-top: 0.75rem;
+  }
+
+  .hero-glow {
+    display: none;
+  }
+}
+
+@media (min-width: 1536px) {
+  .landing-container {
+    width: min(100% - 10rem, 1664px);
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(32rem, 0.9fr) minmax(38rem, 1.1fr);
+  }
 }
 
 .reveal-enabled [data-reveal] {

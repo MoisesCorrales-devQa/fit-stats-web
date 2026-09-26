@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import HeroMeshGlow from "@/components/HeroMeshGlow";
 
 const siteUrl = "https://www.fitstats.es";
 const playStoreUrl =
@@ -64,9 +65,9 @@ export default function EnglishLanding() {
         />
       </Head>
 
-      <main className="min-h-screen bg-[#07110d] text-slate-100">
-        <div className="mx-auto max-w-6xl px-5 py-5 sm:px-8 lg:px-12">
-          <nav className="mb-8 flex flex-col gap-4 border-b border-emerald-400/20 pb-6 sm:flex-row sm:items-center sm:justify-between">
+      <main className="landing-shell min-h-screen bg-[#07110d] text-slate-100">
+        <div className="landing-container mx-auto max-w-6xl px-5 py-5 sm:px-8 lg:px-12">
+          <nav className="site-nav mb-8 flex flex-col gap-4 border-b border-emerald-400/20 pb-6 sm:flex-row sm:items-center sm:justify-between">
             <a href="#top" className="flex items-center gap-3">
               <Image src="/images/icon.png" alt="FitStats app icon" width={88} height={88} className="h-11 w-11 rounded-xl" priority />
               <span className="text-2xl font-black tracking-wide text-white">Fit<span className="text-emerald-300">Stats</span></span>
@@ -79,10 +80,10 @@ export default function EnglishLanding() {
             </div>
           </nav>
 
-          <section id="top" className="relative overflow-hidden border-b border-emerald-400/20 pb-14 pt-8 sm:pt-14">
-            <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-emerald-400/10 blur-3xl" />
-            <div className="relative grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-              <div>
+          <section id="top" className="hero-section relative overflow-hidden border-b border-emerald-400/20 pb-14 pt-8 sm:pt-14">
+            <div className="hero-glow pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-emerald-400/10 blur-3xl" />
+            <div className="hero-grid relative grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+              <div className="hero-copy">
                 <p className="mb-5 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-200">Available for Android on Google Play</p>
                 <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl">All your progress. Not just your workouts.</h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">Track your body and your training in one place to understand whether you are actually making progress.</p>
@@ -91,7 +92,8 @@ export default function EnglishLanding() {
                   <a href="#features" className="rounded-lg border border-emerald-400/40 px-6 py-3 text-center font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/10">Explore features</a>
                 </div>
               </div>
-              <figure className="flex flex-col items-center justify-end">
+              <figure className="hero-device flex flex-col items-center justify-end">
+                <HeroMeshGlow />
                 <Image
                   src="/images/dashboard-header-en.png"
                   alt="FitStats dashboard in English showing weight, measurements, workouts, steps and the current goal"
